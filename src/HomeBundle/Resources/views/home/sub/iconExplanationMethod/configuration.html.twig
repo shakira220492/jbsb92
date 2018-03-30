@@ -1,28 +1,8 @@
 <script>
-
     var configurationIconDiv = document.getElementById('configurationIconDiv');
     var configurationIconContent = document.getElementById('configurationIconContent');
 
-    configurationIconDiv.addEventListener("mouseover", showConfigurationIconContent, false);
-    configurationIconDiv.addEventListener("mouseout", hideConfigurationIconContent, false);
-    configurationIconDiv.addEventListener("click", stablishConfigurationIconContent, false);
-
-    function showConfigurationIconContent()
-    {
-        configurationIconContent.style.opacity = "1";
-        backgroundOptionsContent.style.opacity = "0.3";
-        configurationIconContent.style.zIndex = "3";
-    }
-
-    function hideConfigurationIconContent()
-    {
-        configurationIconContent.style.opacity = "0";
-        backgroundOptionsContent.style.opacity = "0";
-        configurationIconContent.style.zIndex = "2";
-    }
-
-    function stablishConfigurationIconContent()
-    {
-    }
-
+    configurationIconDiv.addEventListener("mouseover", function(){mouseover(fieldName="configurationIconContent", event="mouseover");});
+    configurationIconDiv.addEventListener("mouseout", function(){mouseout(fieldName="configurationIconContent", event="mouseout");});
+    configurationIconDiv.addEventListener("click", function(){click(fieldName="configurationIconContent", event="click");});
 </script>

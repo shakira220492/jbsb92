@@ -1,28 +1,8 @@
 <script>
-
     var listIconDiv = document.getElementById('listIconDiv');
     var listIconContent = document.getElementById('listIconContent');
 
-    listIconDiv.addEventListener("mouseover", showListIconContent, false);
-    listIconDiv.addEventListener("mouseout", hideListIconContent, false);
-    listIconDiv.addEventListener("click", stablishListIconContent, false);
-
-    function showListIconContent()
-    {
-        listIconContent.style.opacity = "1";
-        backgroundOptionsContent.style.opacity = "0.3";
-        listIconContent.style.zIndex = "3";
-    }
-
-    function hideListIconContent()
-    {
-        listIconContent.style.opacity = "0";
-        backgroundOptionsContent.style.opacity = "0";
-        listIconContent.style.zIndex = "2";
-    }
-
-    function stablishListIconContent()
-    {
-    }
-
+    listIconDiv.addEventListener("mouseover", function(){mouseover(fieldName="listIconContent", event="mouseover");});
+    listIconDiv.addEventListener("mouseout", function(){mouseout(fieldName="listIconContent", event="mouseout");});
+    listIconDiv.addEventListener("click", function(){click(fieldName="listIconContent", event="click");});
 </script>

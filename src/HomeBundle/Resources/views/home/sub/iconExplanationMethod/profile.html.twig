@@ -3,26 +3,7 @@
     var profileIconDiv = document.getElementById('profileIconDiv');
     var profileIconContent = document.getElementById('profileIconContent');
 
-    profileIconDiv.addEventListener("mouseover", showProfileIconContent, false);
-    profileIconDiv.addEventListener("mouseout", hideProfileIconContent, false);
-    profileIconDiv.addEventListener("click", stablishProfileIconContent, false);
-
-    function showProfileIconContent()
-    {
-        profileIconContent.style.opacity = "1";
-        backgroundOptionsContent.style.opacity = "0.3";
-        profileIconContent.style.zIndex = "3";
-    }
-
-    function hideProfileIconContent()
-    {
-        profileIconContent.style.opacity = "0";
-        backgroundOptionsContent.style.opacity = "0";
-        profileIconContent.style.zIndex = "2";
-    }
-
-    function stablishProfileIconContent()
-    {
-    }
-
+    profileIconDiv.addEventListener("mouseover", function(){mouseover(fieldName="profileIconContent", event="mouseover");});
+    profileIconDiv.addEventListener("mouseout", function(){mouseout(fieldName="profileIconContent", event="mouseout");});
+    profileIconDiv.addEventListener("click", function(){click(fieldName="profileIconContent", event="click");});
 </script>

@@ -18,7 +18,6 @@ class GUIPropertiesController extends Controller {
         $sessionId = $_POST['sessionId'];
         $fieldName = $_POST['fieldName'];
 
-
 //        fieldName
 
         if ($request->isXMLHttpRequest()) {
@@ -27,12 +26,13 @@ class GUIPropertiesController extends Controller {
 
 
             $field = $em->createQuery(
-                    "SELECT f.fieldId, f.fieldName, f.fieldStatus, u.userId 
+                "SELECT f.fieldId, f.fieldName, f.fieldStatus, u.userId 
                 FROM HomeBundle:Field f 
-                INNER JOIN HomeBundle:User u 
+                JOIN HomeBundle:User u 
+                WITH u.userId = f.user 
                 WHERE u.userId = '$sessionId' and f.fieldName = '$fieldName'"
             );
-
+            
             $fields = $field->getResult();
 
             if ($fields) {
@@ -67,24 +67,15 @@ class GUIPropertiesController extends Controller {
 
             $user = $em->getRepository('HomeBundle:User')->findOneByUserId($sessionId);
 
-
             $layout = $em->createQuery(
-                "SELECT l.layoutId, l.layoutBackgroundcolor, l.layoutOpacity, l.layoutWidth, l.layoutHeight 
-                FROM HomeBundle:User u 
-                INNER HomeBundle:Layout l 
-                WITH u.userid = l.userid 
-                INNER HomeBundle:Field f 
-                WITH u.userid = f.userid 
+                "SELECT l.layoutId, l.layoutBackgroundcolor, l.layoutOpacity, l.layoutWidth, l.layoutHeight, u.userId 
+                FROM HomeBundle:Layout l 
+                JOIN HomeBundle:User u 
+                WITH u.userId = l.user 
+                JOIN HomeBundle:Field f 
+                WITH u.userId = f.user 
                 WHERE u.userId = '$sessionId'"
             );
-            
-//            $layout = $em->createQuery(
-//                "SELECT l.layoutId, l.layoutBackgroundcolor, l.layoutOpacity, l.layoutWidth, l.layoutHeight u.userId 
-//                FROM HomeBundle:Layout l 
-//                JOIN HomeBundle:User u 
-//                JOIN HomeBundle:Field f  
-//                WHERE u.userId = '$sessionId' and f.fieldName = '$fieldName'"
-//            );
 
             $layouts = $layout->getResult();
 

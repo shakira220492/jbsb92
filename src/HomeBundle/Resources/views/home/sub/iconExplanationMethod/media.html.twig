@@ -1,28 +1,8 @@
 <script>
-
     var mediaIconDiv = document.getElementById('mediaIconDiv');
     var mediaIconContent = document.getElementById('mediaIconContent');
 
-    mediaIconDiv.addEventListener("mouseover", showMediaIconContent, false);
-    mediaIconDiv.addEventListener("mouseout", hideMediaIconContent, false);
-    mediaIconDiv.addEventListener("click", stablishMediaIconContent, false);
-
-    function showMediaIconContent()
-    {
-        mediaIconContent.style.opacity = "1";
-        backgroundOptionsContent.style.opacity = "0.3";
-        mediaIconContent.style.zIndex = "3";
-    }
-
-    function hideMediaIconContent()
-    {
-        mediaIconContent.style.opacity = "0";
-        backgroundOptionsContent.style.opacity = "0";
-        mediaIconContent.style.zIndex = "2";
-    }
-
-    function stablishMediaIconContent()
-    {
-    }
-
+    mediaIconDiv.addEventListener("mouseover", function(){mouseover(fieldName="mediaIconContent", event="mouseover");});
+    mediaIconDiv.addEventListener("mouseout", function(){mouseout(fieldName="mediaIconContent", event="mouseout");});
+    mediaIconDiv.addEventListener("click", function(){click(fieldName="mediaIconContent", event="click");});
 </script>

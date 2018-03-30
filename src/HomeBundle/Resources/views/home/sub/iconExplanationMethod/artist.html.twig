@@ -1,37 +1,26 @@
 <script>
-
     var artistIconDiv = document.getElementById('artistIconDiv');
     var artistIconContent = document.getElementById('artistIconContent');
+    
+    artistIconDiv.addEventListener("mouseover", function(){mouseover(fieldName="artistIconContent", event="mouseover");});
+    artistIconDiv.addEventListener("mouseout", function(){mouseout(fieldName="artistIconContent", event="mouseout");});
+    artistIconDiv.addEventListener("click", function(){click(fieldName="artistIconContent", event="click");});
 
-    artistIconDiv.addEventListener("mouseover", mouseoverEvent, false);
-    artistIconDiv.addEventListener("mouseout", mouseoutEvent, false);
-    artistIconDiv.addEventListener("click", clickEvent, false);
-
-    var status = "0";
-    var fieldName = "0";
-    var event = "0";
-
-    function mouseoverEvent()
+    function mouseover(fieldName, event)
     {
-        fieldName = "artistIconContent";
-        event = "over";
-
+        alert("fieldName: "+fieldName+" event: "+event);
         get_session(fieldName, event);
     }
 
-    function mouseoutEvent()
+    function mouseout(fieldName, event)
     {
-        fieldName = "artistIconContent";
-        event = "out";
-
+{#        alert("fieldName: "+fieldName+" event: "+event);#}
         get_session(fieldName, event);
     }
 
-    function clickEvent()
+    function click(fieldName, event)
     {
-        fieldName = "artistIconContent";
-        event = "click";
-
+        alert("fieldName: "+fieldName+" event: "+event);
         get_session(fieldName, event);
     }
 

@@ -3,26 +3,7 @@
     var dataminingIconDiv = document.getElementById('dataminingIconDiv');
     var dataminingIconContent = document.getElementById('dataminingIconContent');
 
-    dataminingIconDiv.addEventListener("mouseover", showDataminingIconContent, false);
-    dataminingIconDiv.addEventListener("mouseout", hideDataminingIconContent, false);
-    dataminingIconDiv.addEventListener("click", stablishDataminingIconContent, false);
-
-    function showDataminingIconContent()
-    {
-        dataminingIconContent.style.opacity = "1";
-        backgroundOptionsContent.style.opacity = "0.3";
-        dataminingIconContent.style.zIndex = "3";
-    }
-
-    function hideDataminingIconContent()
-    {
-        dataminingIconContent.style.opacity = "0";
-        backgroundOptionsContent.style.opacity = "0";
-        dataminingIconContent.style.zIndex = "2";
-    }
-
-    function stablishDataminingIconContent()
-    {
-    }
-
+    dataminingIconDiv.addEventListener("mouseover", function(){mouseover(fieldName="dataminingIconContent", event="mouseover");});
+    dataminingIconDiv.addEventListener("mouseout", function(){mouseout(fieldName="dataminingIconContent", event="mouseout");});
+    dataminingIconDiv.addEventListener("click", function(){click(fieldName="dataminingIconContent", event="click");});
 </script>
