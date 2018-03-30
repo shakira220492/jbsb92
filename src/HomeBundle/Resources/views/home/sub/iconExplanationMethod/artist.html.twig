@@ -1,0 +1,133 @@
+<script>
+
+    var artistIconDiv = document.getElementById('artistIconDiv');
+    var artistIconContent = document.getElementById('artistIconContent');
+
+    artistIconDiv.addEventListener("mouseover", mouseoverEvent, false);
+    artistIconDiv.addEventListener("mouseout", mouseoutEvent, false);
+    artistIconDiv.addEventListener("click", clickEvent, false);
+
+    var status = "0";
+    var fieldName = "0";
+    var event = "0";
+
+    function mouseoverEvent()
+    {
+        fieldName = "artistIconContent";
+        event = "over";
+
+        get_session(fieldName, event);
+    }
+
+    function mouseoutEvent()
+    {
+        fieldName = "artistIconContent";
+        event = "out";
+
+        get_session(fieldName, event);
+    }
+
+    function clickEvent()
+    {
+        fieldName = "artistIconContent";
+        event = "click";
+
+        get_session(fieldName, event);
+    }
+
+    function get_session(fieldName, event)
+    {
+        var form = $('#check-session-ajax');
+        var url = form.attr('action');
+
+        $.post(url, function (data)
+        {
+            var sessionStatus = data[0].sessionStatus;
+            var sessionId = data[0].sessionId;
+
+            if (sessionStatus === "0")
+            {
+                manage_field_layout(fieldName, event, sessionStatus, sessionId);
+            } else if (sessionStatus === "1")
+            {
+                manage_field_layout(fieldName, event, sessionStatus, sessionId);
+            }
+        }).fail(function () {
+            alert('ERROR');
+        });
+    }
+
+    //do the respectly conditions according to the variable values:
+    //possible values to fieldName: 
+    //"artistIconContent" "configurationIconContent" "dataminingIconContent"
+    //"listIconContent" "mediaIconContent" "profileIconContent"
+    //"videoIconContent"
+    //possible values to event: 
+    //"over" "out" "click"
+    //possible values to sessionStatus: 
+    //"0" "1"
+
+    function manage_field_layout(fieldName, event, sessionStatus, sessionId)
+    {
+
+{#        get_stored_field(fieldName, sessionId);
+        get_stored_layout(fieldName, sessionId);
+        set_this_field(fieldName, sessionId);
+        set_this_layout(fieldName, sessionId);
+        delete_stored_field(fieldName, sessionId);
+        delete_stored_layout(fieldName, sessionId);#}
+
+        if (sessionStatus === "0")
+        {
+            // store and recover all from superglobal variables
+        } else if (sessionStatus === "1")
+        {
+            // store and recover all from the database
+
+            if (event === "over")
+            {
+                var stored_field = get_stored_field(fieldName, sessionId);
+                var stored_layout = get_stored_layout(fieldName, sessionId);
+                if (stored_field)
+                {
+                    erase_stored_field();
+                    draw_this_field();
+                } else
+                {
+                    draw_this_field();
+                }
+            } else if (event === "out")
+            {
+                erase_this_field();
+                var stored_field = get_stored_field(fieldName, sessionId);
+                var stored_layout = get_stored_layout(fieldName, sessionId);
+                if (stored_field)
+                {
+                    draw_stored_field();
+                }
+            } else if (event === "click")
+            {
+                var stored_field = get_stored_field(fieldName, sessionId);
+                var stored_layout = get_stored_layout(fieldName, sessionId);
+                if (stored_field)
+                {
+                    delete_stored_field(fieldName, sessionId);
+                    erase_stored_field();
+                    set_this_field(fieldName, sessionId);
+                    draw_this_field();
+                } else
+                {
+                    set_this_field(fieldName, sessionId);
+                    draw_this_field();
+                }
+            }
+        }
+    }
+
+</script>
+
+{{ include('@Home/home/sub/methods/get.html.twig') }}
+{{ include('@Home/home/sub/methods/set.html.twig') }}
+{{ include('@Home/home/sub/methods/delete.html.twig') }}
+{{ include('@Home/home/sub/methods/draw.html.twig') }}
+{{ include('@Home/home/sub/methods/erase.html.twig') }}

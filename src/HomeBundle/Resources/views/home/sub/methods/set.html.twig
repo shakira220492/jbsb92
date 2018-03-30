@@ -1,0 +1,26 @@
+<script>
+    function set_this_field(fieldName, sessionId)
+    {
+        var form = $('#set-this-field-ajax');
+        var url = form.attr('action');
+
+        $.post(url, {fieldName: fieldName, sessionId: sessionId}, function (data)
+        {
+            alert("#set-this-field-ajax");
+        }).fail(function () {
+            alert("ERROR");
+        });
+    }
+    function set_this_layout(fieldName, sessionId)
+    {
+        var form = $('#set-this-layout-ajax');
+        var url = form.attr('action');
+
+        $.post(url, {fieldName: fieldName, sessionId: sessionId}, function (data)
+        {
+            alert("#set-this-layout-ajax");
+        }).fail(function () {
+            alert("ERROR");
+        });
+    }
+</script>

@@ -1,0 +1,28 @@
+<script>
+
+    var videoIconDiv = document.getElementById('videoIconDiv');
+    var videoIconContent = document.getElementById('videoIconContent');
+
+    videoIconDiv.addEventListener("mouseover", showVideoIconContent, false);
+    videoIconDiv.addEventListener("mouseout", hideVideoIconContent, false);
+    videoIconDiv.addEventListener("click", stablishVideoIconContent, false);
+
+    function showVideoIconContent()
+    {
+        videoIconContent.style.opacity = "1";
+        backgroundOptionsContent.style.opacity = "0.3";
+        videoIconContent.style.zIndex = "3";
+    }
+
+    function hideVideoIconContent()
+    {
+        videoIconContent.style.opacity = "0";
+        backgroundOptionsContent.style.opacity = "0";
+        videoIconContent.style.zIndex = "2";
+    }
+
+    function stablishVideoIconContent()
+    {
+    }
+
+</script>

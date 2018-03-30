@@ -1,0 +1,77 @@
+<script>
+    function draw_this_field(fieldId, fieldName, fieldStatus)
+    {
+        if (!fieldId)
+        {
+            alert("don't exist fieldId");
+        } else
+        {
+            alert("exists fieldId");
+        }
+
+
+        if (!fieldName)
+        {
+            alert("don't exist fieldName");
+            //possible values to fieldName: 
+            //"artistIconContent" "configurationIconContent" "dataminingIconContent"
+            //"listIconContent" "mediaIconContent" "profileIconContent"
+            //"videoIconContent"
+        } else
+        {
+            alert("exists fieldName");
+        }
+
+
+        if (!fieldStatus)
+        {
+            alert("don't exist fieldStatus");
+        } else
+        {
+            alert("exists fieldStatus");
+        }
+
+{#        var field = document.getElementById(fieldName);
+
+        field.style.opacity = "1";
+        field.style.color = "red";
+
+        alert("fieldId: " + fieldId + " fieldName: " + fieldName + " fieldStatus: " + fieldStatus);#}
+
+    }
+    function draw_stored_field()
+    {
+        alert("3");
+    }
+    function draw_this_layout()
+    {
+        alert("4");
+    }
+    function draw_stored_layout()
+    {
+        alert("5");
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+{#        function drawContent()
+        {
+            if (status === "temporal" || status === "permament")
+            {
+                artistIconContent.style.opacity = "1";
+                backgroundOptionsContent.style.opacity = "0.3";
+                artistIconContent.style.zIndex = "3";
+            } else if (status === "hide")
+            {
+                artistIconContent.style.opacity = "0";
+                backgroundOptionsContent.style.opacity = "0";
+                artistIconContent.style.zIndex = "2";
+            }
+        }
+#}
+</script>
